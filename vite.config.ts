@@ -5,7 +5,7 @@ import path from 'path'
 export default defineConfig(({ mode }) => {
 	const env = loadEnv(mode, process.cwd())
 
-	const BASE_URL = env.VITE_SPORTMONKS_API_BASE_URL
+	const BASE_URL = env.VITE_RAPID_API_BASE_URL
 
 	return {
 		plugins: [react()],
@@ -20,17 +20,6 @@ export default defineConfig(({ mode }) => {
 					target: BASE_URL,
 					changeOrigin: true,
 					rewrite: (path) => path.replace(/^\/api/, ''),
-					headers: {
-						Accept: 'application/json',
-						'Content-Type': 'application/json',
-					},
-					configure: (proxy, _options) => {
-						proxy.on('proxyReq', (proxyReq, _req, _res) => {
-							const url = new URL(proxyReq.path, BASE_URL)
-							url.searchParams.set('api_token', env.VITE_SPORTMONKS_API_KEY)
-							proxyReq.path = url.pathname + url.search
-						})
-					},
 				},
 			},
 		},

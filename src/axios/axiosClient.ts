@@ -10,6 +10,8 @@ const axiosClient: AxiosInstance = axios.create({
 
 axiosClient.interceptors.request.use(
 	(config) => {
+		config.headers['x-rapidapi-key'] = import.meta.env.VITE_RAPID_API_KEY
+		config.headers['x-rapidapi-host'] = 'v3.football.api-sports.io'
 		return config
 	},
 	(error) => Promise.reject(error)
