@@ -1,6 +1,7 @@
 import axios, { type AxiosInstance } from 'axios'
 
 const axiosClient: AxiosInstance = axios.create({
+	baseURL: '/api',
 	timeout: 5000,
 	headers: {
 		'Content-Type': 'application/json',
@@ -9,7 +10,6 @@ const axiosClient: AxiosInstance = axios.create({
 
 axiosClient.interceptors.request.use(
 	(config) => {
-		// implement interceptors
 		return config
 	},
 	(error) => Promise.reject(error)
