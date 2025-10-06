@@ -3,12 +3,12 @@ import './button.scss'
 interface Button {
 	type: 'button' | 'submit'
 	text: string
-	onChange: () => void
+	onClick: () => void
 }
 
-const Button = ({ type, text, onChange }: Button) => {
+const Button = ({ type, text, onClick }: Button) => {
 	return (
-		<button type={type} onChange={onChange} className='button'>
+		<button type={type} onClick={onClick} className='button'>
 			{text}
 		</button>
 	)

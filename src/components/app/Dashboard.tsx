@@ -1,6 +1,8 @@
 import type { ApiResponse } from '../common/types/globalTypes'
 import TeamCard from '../team/components/team-card/TeamCard'
+import { useTeams } from '../team/hooks/useTeams'
 import type { TeamParams, TeamResponse } from '../team/types'
+import Loading from '../common/components/loading/Loading'
 import '@/assets/styles/index.scss'
 
 const mockTeams: ApiResponse<TeamResponse, TeamParams> = {
@@ -340,10 +342,19 @@ const mockTeams: ApiResponse<TeamResponse, TeamParams> = {
 }
 
 export default function Dashboard() {
+	const { teams, isFetchingTeams } = useTeams()
+
+	if (isFetchingTeams) {
+		return <Loading />
+	}
+
 	return (
 		<div className='dashboardContainer'>
 			<h1>Serbian Super League</h1>
 			<div className='dashboard'>
+				{/* {teams.map((team) => (
+					<TeamCard key={team.team.id} {...team.team} />
+				))} */}
 				{mockTeams.response.map((team) => (
 					<TeamCard key={team.team.id} {...team.team} />
 				))}
