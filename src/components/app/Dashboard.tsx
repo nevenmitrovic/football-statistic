@@ -355,9 +355,8 @@ export default function Dashboard() {
 				{/* {teams.map((team) => (
 					<TeamCard key={team.team.id} {...team.team} />
 				))} */}
-				{mockTeams.response.map((team) => (
-					<TeamCard key={team.team.id} {...team.team} />
-				))}
+				{Array.isArray(mockTeams.response) &&
+					mockTeams.response.map((team) => <TeamCard key={team.team.id} {...team.team} />)}
 			</div>
 		</div>
 	)

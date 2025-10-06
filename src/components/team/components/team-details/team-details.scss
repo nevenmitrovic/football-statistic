@@ -1,0 +1,68 @@
+.teamDetails {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+
+	.clubAndLeague {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 40px;
+
+		.club,
+		.league {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 8px;
+
+			p {
+				font-weight: 700;
+			}
+		}
+		.club {
+			p {
+				color: $color-primary;
+			}
+		}
+	}
+
+	.fixtures {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		width: min-content;
+
+		h3 {
+			padding-inline: 12px;
+			font-size: 24px;
+		}
+
+		ul {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+			font-size: 18px;
+
+			li {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				gap: 8px;
+				padding-inline: 12px;
+
+				.title {
+					font-size: 20px;
+					font-weight: 700;
+				}
+
+				ul {
+					li {
+						padding-inline: 0;
+					}
+				}
+			}
+		}
+	}
+}

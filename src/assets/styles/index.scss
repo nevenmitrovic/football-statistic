@@ -4,6 +4,7 @@
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+	list-style-type: none;
 }
 
 body {
@@ -17,10 +18,26 @@ button {
 	cursor: pointer;
 }
 
+/* UTILS */
+.pagePadding {
+	padding: 20px;
+}
+.card {
+	border: 1px solid $color-border;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba($color-secondary, 0.1);
+	padding: 16px;
+	background-color: $color-primary;
+	transition: transform 300ms ease-in-out;
+
+	&:hover {
+		box-shadow: 0 8px 12px rgba($color-highlight, 0.15);
+		transform: translateY(-3px);
+	}
+}
+
 /* PAGES */
 .dashboardContainer {
-	padding: 20px;
-
 	h1 {
 		text-align: center;
 		padding-block: 20px;

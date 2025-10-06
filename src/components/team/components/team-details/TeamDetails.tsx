@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import './team-details.scss'
 import type { ApiResponse } from '@/components/common/types/globalTypes'
 import type { TeamStatisticParams, TeamStatisticResponse } from '../../types'
+import { firstCharToUp } from '@/utils'
 
 const mockTeamStatistic: ApiResponse<TeamStatisticResponse, TeamStatisticParams> = {
 	get: 'teams/statistics',
@@ -326,9 +327,51 @@ const mockTeamStatistic: ApiResponse<TeamStatisticResponse, TeamStatisticParams>
 }
 
 const TeamDetails = () => {
-	const { teamId } = useParams<{ teamId: string }>()
+	const { teamId } = useParams()
 
-	return <div>Team Details {teamId}</div>
+	const teamStats = mockTeamStatistic.response as TeamStatisticResponse
+
+	return (
+		<div className='teamDetails pagePadding'>
+			<div className='clubAndLeague'>
+				<div className='club'>
+					<h3>{teamStats.team.name}</h3>
+					<img src={teamStats.team.logo} alt='club logo' />
+					<p>{teamStats.form.slice(-5)}</p>
+				</div>
+				<div className='league'>
+					<h3>{teamStats.league.name}</h3>
+					<p>
+						{teamStats.league.season} / {teamStats.league.season + 1}
+					</p>
+					<img src={teamStats.league.logo} alt='league logo' />
+				</div>
+			</div>
+			<div className='stats'>
+				<div className='card fixtures'>
+					<h3>Fixtures</h3>
+					<ul>
+						{Object.entries(teamStats.fixtures).map(([key, val]) => {
+							return (
+								<li key={key}>
+									<span className='title'>{firstCharToUp(key)}</span>
+									<ul>
+										{Object.entries(val).map(([key, val]) => {
+											return (
+												<li key={key}>
+													{firstCharToUp(key)} {val}
+												</li>
+											)
+										})}
+									</ul>
+								</li>
+							)
+						})}
+					</ul>
+				</div>
+			</div>
+		</div>
+	)
 }
 
 export default TeamDetails
