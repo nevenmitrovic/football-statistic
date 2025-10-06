@@ -345,7 +345,7 @@ export default function Dashboard() {
 			<h1>Serbian Super League</h1>
 			<div className='dashboard'>
 				{mockTeams.response.map((team) => (
-					<TeamCard key={team.team.id} {...team} />
+					<TeamCard key={team.team.id} {...team.team} />
 				))}
 			</div>
 		</div>

@@ -1,26 +1,26 @@
 import './team-card.scss'
-import type { TeamResponse } from '../../types'
+import type { Team } from '../../types'
+import Button from '@/components/common/button/Button'
 
-const TeamCard = ({ team, venue }: TeamResponse) => {
+const TeamCard = ({ logo, name, code, country, founded }: Team) => {
 	return (
 		<div className='teamCard'>
-			<div className='team'>
-				<img src={team.logo} alt='team logo' />
-				<div>
-					<p>Name: {team.name}</p>
-					<p>Code: {team.code}</p>
-					<p>Country: {team.country}</p>
-					<p>Founded: {team.founded}</p>
-				</div>
-			</div>
-			<div className='venue'>
-				<img src={venue.image} alt='team logo' />
-				<div>
-					<p>Name: {venue.name}</p>
-					<p>Address: {venue.address}</p>
-					<p>City: {venue.city}</p>
-					<p>Capacity: {venue.capacity}</p>
-					<p>Surface: {venue.surface}</p>
+			<img src={logo} alt='team logo' />
+			<div className='clubInfo'>
+				<p>
+					<b>Name:</b> {name}
+				</p>
+				<p>
+					<b>Code:</b> {code}
+				</p>
+				<p>
+					<b>Country:</b> {country}
+				</p>
+				<p>
+					<b>Founded:</b> {founded}
+				</p>
+				<div className='details'>
+					<Button type='button' text='View details' onChange={() => {}} />
 				</div>
 			</div>
 		</div>
