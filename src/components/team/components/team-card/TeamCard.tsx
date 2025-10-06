@@ -1,6 +1,6 @@
 import './team-card.scss'
 import type { Team } from '../../types'
-import Button from '@/components/common/button/Button'
+import Button from '@/components/common/components/button/Button'
 
 const TeamCard = ({ logo, name, code, country, founded }: Team) => {
 	return (
