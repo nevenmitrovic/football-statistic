@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 import { Route, Routes } from 'react-router'
 
-const Dashboard = lazy(() => import('@/components/dashboard/Dashboard'))
+const Dashboard = lazy(() => import('@/components/app/Dashboard'))
 
 const AppRouter = () => {
 	return (

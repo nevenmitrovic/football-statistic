@@ -1,5 +1,7 @@
 import type { ApiResponse } from '../common/types/globalTypes'
+import TeamCard from '../team/components/team-card/TeamCard'
 import type { TeamParams, TeamResponse } from '../team/types'
+import '@/assets/styles/index.scss'
 
 const mockTeams: ApiResponse<TeamResponse, TeamParams> = {
 	get: 'teams',
@@ -338,5 +340,14 @@ const mockTeams: ApiResponse<TeamResponse, TeamParams> = {
 }
 
 export default function Dashboard() {
-	return <div>DASHBOARD</div>
+	return (
+		<div className='dashboardContainer'>
+			<h1>Serbian Super League</h1>
+			<div className='dashboard'>
+				{mockTeams.response.map((team) => (
+					<TeamCard key={team.team.id} {...team} />
+				))}
+			</div>
+		</div>
+	)
 }

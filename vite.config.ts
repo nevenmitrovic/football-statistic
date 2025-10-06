@@ -14,6 +14,13 @@ export default defineConfig(({ mode }) => {
 				'@': path.resolve(__dirname, './src'),
 			},
 		},
+		css: {
+			preprocessorOptions: {
+				scss: {
+					additionalData: `@use "@/assets/styles/_variables.scss" as *;`,
+				},
+			},
+		},
 		server: {
 			proxy: {
 				'/api': {

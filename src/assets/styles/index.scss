@@ -1,0 +1,26 @@
+@use '@/assets/styles/_variables.scss' as *;
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: $color-background;
+	color: $color-text;
+	font-family: 'Aachen', Arial, sans-serif;
+}
+
+.dashboardContainer {
+	h1 {
+		text-align: center;
+		padding-block: 20px;
+		font-size: 48px;
+	}
+	.dashboard {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, 600px);
+		gap: 40px;
+	}
+}
