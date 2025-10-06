@@ -4,7 +4,7 @@ export interface ApiResponse<T, P> {
 	errors: any[]
 	results: number
 	paging: Paging
-	response: T[]
+	response: T[] | T
 }
 interface Paging {
 	current: number
