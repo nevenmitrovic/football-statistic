@@ -350,7 +350,7 @@ const TeamDetails = () => {
 			<div className='stats'>
 				<div className='card fixtures'>
 					<h3>Fixtures</h3>
-					<table>
+					<table className='table'>
 						<thead>
 							<tr>
 								<th />
