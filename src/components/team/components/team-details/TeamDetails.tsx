@@ -350,24 +350,28 @@ const TeamDetails = () => {
 			<div className='stats'>
 				<div className='card fixtures'>
 					<h3>Fixtures</h3>
-					<ul>
-						{Object.entries(teamStats.fixtures).map(([key, val]) => {
-							return (
-								<li key={key}>
-									<span className='title'>{firstCharToUp(key)}</span>
-									<ul>
-										{Object.entries(val).map(([key, val]) => {
-											return (
-												<li key={key}>
-													{firstCharToUp(key)} {val}
-												</li>
-											)
-										})}
-									</ul>
-								</li>
-							)
-						})}
-					</ul>
+					<table>
+						<thead>
+							<tr>
+								<th />
+								<th>Home</th>
+								<th>Away</th>
+								<th>Total</th>
+							</tr>
+						</thead>
+						<tbody>
+							{Object.entries(teamStats.fixtures).map(([key, val]) => {
+								return (
+									<tr>
+										<td>{firstCharToUp(key)}</td>
+										{Object.entries(val).map(([_subKey, subVal]) => (
+											<td>{subVal}</td>
+										))}
+									</tr>
+								)
+							})}
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
